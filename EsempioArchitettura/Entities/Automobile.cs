@@ -24,5 +24,10 @@ namespace EsempioArchitettura
             NumeroPosti = numPosti;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + $" Targa: {Targa} - numero posti: {NumeroPosti}";
+        }
+
     }
 }

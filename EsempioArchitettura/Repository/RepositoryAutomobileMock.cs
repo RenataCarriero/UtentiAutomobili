@@ -16,7 +16,15 @@ namespace EsempioArchitettura.Repository
 
         public bool Aggiungi(Automobile item)
         {
-            throw new NotImplementedException();
+            if(item == null)
+            {
+                return false;
+            }
+            else
+            {
+                Automobili.Add(item);
+                return true;
+            }
         }
 
         public bool Delete(Automobile item)
@@ -26,17 +34,31 @@ namespace EsempioArchitettura.Repository
 
         public IList<Automobile> GetAll()
         {
-            throw new NotImplementedException();
+            return Automobili;
         }
 
         public Automobile GetById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var item in Automobili)
+            {
+                if (item.Id == id)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public Automobile GetByTarga(string targa)
         {
-            throw new NotImplementedException();
+            foreach (var item in Automobili)
+            {
+                if (item.Targa == targa)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public bool Modifica(Automobile item)

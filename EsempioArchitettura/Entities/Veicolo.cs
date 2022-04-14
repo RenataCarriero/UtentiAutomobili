@@ -29,6 +29,10 @@ namespace EsempioArchitettura
             UtenteId=idUtente; 
         }
 
-     
+        public override string ToString()
+        {
+            return $"{Id}- Brand: {Brand} - Elettrica: {IsElettrico}";
+        }
+
     }
 }

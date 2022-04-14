@@ -40,12 +40,26 @@ namespace EsempioArchitettura.Repository
 
         public Utente GetById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var item in Utenti)
+            {
+                if (item.Id == id)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public Utente GetByNomeCognome(string nome, string cognome)
         {
-            throw new NotImplementedException();
+            foreach (var item in Utenti)
+            {
+                if (item.Nome == nome && item.Cognome==cognome)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public bool Modifica(Utente item)
