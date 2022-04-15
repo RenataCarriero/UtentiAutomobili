@@ -9,5 +9,6 @@ namespace EsempioArchitettura
     internal interface IRepositoryAutomobile: IRepository<Automobile>
     {
         Automobile GetByTarga(string targa);
+        List<Automobile> GetAutoByUtente(int idUtente);
     }
 }

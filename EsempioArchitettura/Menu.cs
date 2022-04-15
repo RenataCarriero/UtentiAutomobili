@@ -66,7 +66,7 @@ namespace EsempioArchitettura
                     //EliminaUtente();
                     break;
                 case 5:
-                    //CercaAutoDiUnUtente();
+                    CercaAutoDiUnUtente();
                     break;
                 case 6:
                     InserisciAutomobile();
@@ -81,6 +81,33 @@ namespace EsempioArchitettura
                     break;
             }
             return true;
+        }
+
+        private static void CercaAutoDiUnUtente()
+        {
+            Console.WriteLine("Elenco Utenti:");
+            VisualizzaUtenti();
+            Console.WriteLine("Le auto di quale utente vuoi vedere?");
+            int idUtente;
+            do
+            {
+                Console.Write("Inserisci un id utente valido: ");
+            } while (!(int.TryParse(Console.ReadLine(), out idUtente) && repoUtente.GetById(idUtente) != null));
+
+            List<Automobile> autoRestituite=repoAutomobile.GetAutoByUtente(idUtente);
+
+            if (autoRestituite.Count == 0)
+            {
+                Console.WriteLine("L'utente non ha auto!");
+            }
+            else
+            {
+                Console.WriteLine("Ecco le auto dell'utente:");
+                foreach (var item in autoRestituite)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
 
         private static void VisualizzaAutomobili()

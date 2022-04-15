@@ -37,6 +37,19 @@ namespace EsempioArchitettura.Repository
             return Automobili;
         }
 
+        public List<Automobile> GetAutoByUtente(int idUtente)
+        {
+            List<Automobile> list = new List<Automobile>();
+            foreach (Automobile item in Automobili)
+            {
+                if (item.UtenteId == idUtente)
+                {
+                    list.Add(item);
+                }
+            }
+            return list;
+        }
+
         public Automobile GetById(int id)
         {
             foreach (var item in Automobili)
